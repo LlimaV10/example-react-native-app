@@ -1,4 +1,4 @@
-package com.examplereactnativeapp;
+package com.exampleapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

@@ -1,9 +1,8 @@
 {
-  "name": "exampleReactNativeApp",
-  "displayName": "exampleReactNativeApp",
   "expo": {
     "name": "exampleReactNativeApp",
-    "slug": "exampleReactNativeApp",
+    "slug": "exampleReactNativeApp-s9FFVI17SkCrYftnbehg",
+    "privacy": "unlisted",
     "version": "1.0.0",
     "platforms": [
       "ios",
@@ -12,6 +11,13 @@
     ],
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "ios": {
+      "bundleIdentifier": "com.exampleapp"
+    },
+    "android": {
+      "package": "com.exampleapp"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }

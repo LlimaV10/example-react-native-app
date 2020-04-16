@@ -144,7 +144,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "exampleReactNativeApp" */;
@@ -278,9 +278,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = exampleReactNativeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.exampleapp";
+				PRODUCT_NAME = exampleapp;
 				VERSIONING_SYSTEM = "apple-generic";
+				CODE_SIGN_ENTITLEMENTS = exampleReactNativeApp/exampleapp.entitlements;
 			};
 			name = Debug;
 		};
@@ -297,9 +298,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = exampleReactNativeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.exampleapp";
+				PRODUCT_NAME = exampleapp;
 				VERSIONING_SYSTEM = "apple-generic";
+				CODE_SIGN_ENTITLEMENTS = exampleReactNativeApp/exampleapp.entitlements;
 			};
 			name = Release;
 		};
@@ -353,6 +355,9 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.exampleapp";
+				PRODUCT_NAME = exampleapp;
+				CODE_SIGN_ENTITLEMENTS = exampleReactNativeApp/exampleapp.entitlements;
 			};
 			name = Debug;
 		};
@@ -399,6 +404,9 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.exampleapp";
+				PRODUCT_NAME = exampleapp;
+				CODE_SIGN_ENTITLEMENTS = exampleReactNativeApp/exampleapp.entitlements;
 			};
 			name = Release;
 		};
