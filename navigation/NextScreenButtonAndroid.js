@@ -1,8 +1,13 @@
 import * as React from 'react'
 import {Text, TouchableOpacity} from "react-native";
 import navItems from "../data/nav-items";
+import {Ionicons} from "@expo/vector-icons";
 
-const NextScreenButton = ({navigation, route}) => {
+const NextScreenButtonAndroid = ({navigation, route}) => {
+  if (Platform.OS === 'ios') {
+    return null
+  }
+
   return (
     <TouchableOpacity
       style={styles.container}
@@ -11,7 +16,12 @@ const NextScreenButton = ({navigation, route}) => {
       }}
     >
       <Text style={styles.buttonText}>Next screen</Text>
-      <Text style={styles.arrow}>></Text>
+      <Ionicons
+          name='md-arrow-forward'
+          size={30}
+          style={styles.arrow}
+          color='white'
+      />
     </TouchableOpacity>
   )
 };
@@ -37,8 +47,7 @@ const styles = {
     color: 'white',
     fontSize: 36,
     marginLeft: 24,
-    marginBottom: 3
   },
 };
 
-export default NextScreenButton
+export default NextScreenButtonAndroid

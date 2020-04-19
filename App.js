@@ -1,10 +1,12 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {StatusBar} from "react-native";
+import {Platform, StatusBar} from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
-import CustomHeader from "./navigation/CustomHeader";
+import CustomHeaderAndroid from "./navigation/CustomHeaderAndroid";
 import DrawerNavigator from "./navigation/DrawerNavigator";
+import BottomTabNavigator from "./navigation/BottomTabNavigator";
+import CustomHeaderIos from "./navigation/CustomHeaderIos";
 
 const Stack = createStackNavigator();
 
@@ -12,7 +14,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar
-        barStyle='light-content'
+        barStyle={Platform.select({
+            android: 'light-content',
+            ios: 'dark-content'
+        })}
         backgroundColor='#f4511e'
         translucent
       />
@@ -21,7 +26,10 @@ export default function App() {
         mode='modal'
         headerMode='screen'
         screenOptions={{
-          header: props => <CustomHeader {...props} />,
+          header: props => Platform.select({
+              android: <CustomHeaderAndroid {...props} />,
+              ios: <CustomHeaderIos {...props} />
+          }),
           // ---> Next attributes could be used if `header` don't specified
           // headerStyle: {
           //   backgroundColor: '#f4511e',
@@ -33,7 +41,15 @@ export default function App() {
           // },
         }}
       >
-        <Stack.Screen name='Root' component={DrawerNavigator} />
+        <Stack.Screen
+            name='Root'
+            component={
+                Platform.select({
+                    ios: BottomTabNavigator,
+                    android: DrawerNavigator
+                })
+            }
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

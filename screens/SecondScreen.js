@@ -1,12 +1,12 @@
 import * as React from 'react'
 import {View, Text} from "react-native";
-import NextScreenButton from "../navigation/NextScreenButton";
+import NextScreenButtonAndroid from "../navigation/NextScreenButtonAndroid";
 
 const SecondScreen = (props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Second Screen</Text>
-      <NextScreenButton {...props} />
+      <NextScreenButtonAndroid {...props} />
     </View>
   )
 };

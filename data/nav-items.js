@@ -8,21 +8,24 @@ const navItems = [
     name: 'Home',
     component: Home,
     navTitle: 'Home',
-    headerTitle: 'Home screen'
+    headerTitle: 'Home screen',
+    iosIcon: 'ios-home',
   },
   {
     index: 1,
     name: 'SecondScreen',
     component: SecondScreen,
     navTitle: 'Second',
-    headerTitle: 'Second screen'
+    headerTitle: 'Second screen',
+    iosIcon: 'logo-apple',
   },
   {
     index: 2,
     name: 'ThirdScreen',
     component: ThirdScreen,
     navTitle: 'Third',
-    headerTitle: 'Third screen'
+    headerTitle: 'Third screen',
+    iosIcon: 'ios-basketball',
   },
 ];
 

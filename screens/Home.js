@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Button, Platform, StyleSheet, Text, View} from "react-native";
-import NextScreenButton from "../navigation/NextScreenButton";
+import NextScreenButtonAndroid from "../navigation/NextScreenButtonAndroid";
 import navItems from "../data/nav-items";
 
 const platformMessage = Platform.select({
@@ -12,7 +12,7 @@ const Home = (props) => {
   const {navigation} = props;
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to example React Native!</Text>
+      <Text style={styles.welcome}>Welcome to the example React Native app!</Text>
       <Text style={styles.instructions}>{platformMessage}</Text>
       <Button
         onPress={() => {
@@ -20,7 +20,7 @@ const Home = (props) => {
         }}
         title="Let's walk through"
       />
-      <NextScreenButton {...props} />
+      <NextScreenButtonAndroid {...props} />
     </View>
   )
 };
