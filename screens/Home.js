@@ -1,5 +1,6 @@
 import * as React from 'react'
-import {AsyncStorage, Button, Platform, StyleSheet, Text, View} from "react-native";
+import {Button, Platform, StyleSheet, Text, View} from "react-native";
+import {connect} from "react-redux";
 
 const platformMessage = Platform.select({
   ios: `, you're now running app on IOS device`,
@@ -11,57 +12,23 @@ const changeNameMessage = Platform.select({
   android: `You could change your name inside navigation bar`,
 });
 
-class Home extends React.PureComponent {
-  constructor(props) {
-    super(props);
+const Home = (props) => {
+  const {navigation} = props;
 
-    this.state = {
-      userName: 'User'
-    }
-  }
-
-  updateName = () => {
-    AsyncStorage.getItem("USERNAME", (error, result) => {
-      if (result != null) {
-        this.setState({userName: result})
-      }
-    });
-  };
-
-  componentDidMount() {
-    this.props.navigation.addListener('focus', this.updateName);
-  }
-
-  componentWillUnmount() {
-    this.props.navigation.removeListener('focus');
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    AsyncStorage.getItem("USERNAME", (error, result) => {
-      if (result != null) {
-        this.setState({userName: result})
-      }
-    });
-  }
-
-  render() {
-    const {navigation} = this.props;
-
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to the example React Native app!</Text>
-        <Text style={styles.instructions}>{"Hi " + this.state.userName + platformMessage}</Text>
-        <Text style={styles.changeNameText}>{changeNameMessage}</Text>
-        <Button
-          onPress={() => {
-            navigation.navigate('SecondScreen')
-          }}
-          title="Let's walk through"
-        />
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcome}>Welcome to the example React Native app!</Text>
+      <Text style={styles.instructions}>{"Hi " + props.account.username + platformMessage}</Text>
+      <Text style={styles.changeNameText}>{changeNameMessage}</Text>
+      <Button
+        onPress={() => {
+          navigation.navigate('SecondScreen')
+        }}
+        title="Let's walk through"
+      />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -87,4 +54,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home
+const mapStateToProps = ({ account }) => ({
+  account
+});
+
+export default connect(mapStateToProps)(Home)
+

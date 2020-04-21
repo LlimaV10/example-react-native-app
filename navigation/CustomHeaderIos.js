@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text, TouchableOpacity, View} from "react-native";
-import {Ionicons} from '@expo/vector-icons';
 import navItemsIos from "../data/nav-items-ios";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const STATUSBAR_HEIGHT = 20;
 
@@ -21,7 +21,7 @@ const CustomHeaderIos = ({ scene, navigation }) => {
             }}
             style={styles.touchableButton}
           >
-            <Ionicons
+            <Icon
               name='ios-arrow-back'
               size={20}
               style={styles.icon}
@@ -44,7 +44,7 @@ const CustomHeaderIos = ({ scene, navigation }) => {
             style={styles.touchableButton}
           >
             <Text style={styles.buttonText}>Next</Text>
-            <Ionicons
+            <Icon
               name='ios-arrow-forward'
               size={20}
               style={styles.icon}

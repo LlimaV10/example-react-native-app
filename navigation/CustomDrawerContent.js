@@ -1,6 +1,9 @@
 import * as React from 'react';
 import {DrawerContentScrollView, DrawerItemList, useIsDrawerOpen} from '@react-navigation/drawer';
-import {Text, View, TextInput, AsyncStorage, Button, Keyboard} from "react-native";
+import {Button, Keyboard, Text, TextInput, View, ScrollView} from "react-native";
+import {setUsername,} from "./../redux/Actions"
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 
 const CustomDrawerContent = (props) => {
   const isDrawerOpen = useIsDrawerOpen();
@@ -8,28 +11,13 @@ const CustomDrawerContent = (props) => {
     Keyboard.dismiss()
   }
 
-  const [name, setName] = React.useState("User");
   const [inputName, setInputName] = React.useState("");
 
-  AsyncStorage.getItem("USERNAME", (error, result) => {
-    if (result != null) {
-      setName(result);
-    }
-  });
-
+  const {username} = props.account;
+  const {setUsername} = props;
   return (
-    <DrawerContentScrollView {...props}>
-      <Text style={styles.text}>Using pure drawer items:</Text>
-      <DrawerItemList {...props} />
-      <View
-        style={{
-          borderBottomColor: '#cbcbcb',
-          borderBottomWidth: 1,
-          marginLeft: 18,
-          marginTop: 18,
-        }}
-      />
-      <Text style={styles.text}>Hello {name}</Text>
+    <ScrollView>
+      <Text style={styles.text}>Hello {username}</Text>
       <Text style={[styles.text, {marginTop: 9}]}>Set new name:</Text>
       <TextInput
         style={{
@@ -40,19 +28,30 @@ const CustomDrawerContent = (props) => {
           marginBottom: 9,
           padding: 5,
         }}
-        defaultValue={name}
+        defaultValue={username}
         onChangeText={text => {
           setInputName(text)
         }}
       />
       <Button
         onPress={() => {
-          AsyncStorage.setItem("USERNAME", inputName, () => {});
-          setName(inputName);
+          if (inputName && inputName !== '') {
+            setUsername(inputName)
+          }
         }}
         title="Save"
       />
-    </DrawerContentScrollView>
+      <View
+        style={{
+          borderBottomColor: '#cbcbcb',
+          borderBottomWidth: 1,
+          marginLeft: 18,
+          marginTop: 18,
+        }}
+      />
+      <Text style={styles.text}>Using pure drawer items:</Text>
+      <DrawerItemList {...props} />
+    </ScrollView>
   );
 };
 
@@ -65,4 +64,17 @@ const styles = {
   }
 };
 
-export default CustomDrawerContent
+const mapStateToProps = ({ account }) => ({
+  account
+});
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      setUsername
+    },
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomDrawerContent)

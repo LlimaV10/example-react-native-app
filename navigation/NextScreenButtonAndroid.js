@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Text, TouchableOpacity} from "react-native";
 import navItemsAndroid from "../data/nav-items-android";
-import {Ionicons} from "@expo/vector-icons";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const NextScreenButtonAndroid = ({navigation, route}) => {
   if (Platform.OS === 'ios') {
@@ -16,7 +16,7 @@ const NextScreenButtonAndroid = ({navigation, route}) => {
       }}
     >
       <Text style={styles.buttonText}>Next screen</Text>
-      <Ionicons
+      <Icon
         name='md-arrow-forward'
         size={30}
         style={styles.arrow}

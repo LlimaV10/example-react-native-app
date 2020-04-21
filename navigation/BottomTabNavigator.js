@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import navItemsIos from "../data/nav-items-ios";
-import {Ionicons} from "@expo/vector-icons";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const Tab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = navItemsIos[0].name;
@@ -20,7 +20,7 @@ const BottomTabNavigator = ({navigation, route}) => {
           title: item.navTitle,
           tabBarIcon: ({color, size }) => {
             return (
-              <Ionicons
+              <Icon
                 name={item.iosIcon}
                 size={size}
                 color={color}

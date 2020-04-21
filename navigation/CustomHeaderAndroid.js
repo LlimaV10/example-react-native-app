@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {NativeModules, Text, TouchableOpacity, View} from "react-native";
-import {Ionicons} from '@expo/vector-icons';
 import {DrawerActions} from "@react-navigation/native";
 import navItemsAndroid from "../data/nav-items-android";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const { StatusBarManager } = NativeModules;
 const STATUSBAR_HEIGHT = StatusBarManager.HEIGHT;
@@ -23,7 +23,7 @@ const CustomHeaderAndroid = ({ scene, navigation }) => {
             }}
             style={styles.touchableButton}
           >
-            <Ionicons
+            <Icon
               name='md-menu'
               size={30}
               style={styles.icon}
@@ -39,7 +39,7 @@ const CustomHeaderAndroid = ({ scene, navigation }) => {
             }}
             style={styles.touchableButton}
           >
-            <Ionicons
+            <Icon
               name='md-arrow-back'
               size={30}
               style={styles.icon}
@@ -60,7 +60,7 @@ const CustomHeaderAndroid = ({ scene, navigation }) => {
             }}
             style={styles.touchableButton}
           >
-            <Ionicons
+            <Icon
               name='md-close'
               size={30}
               style={styles.icon}

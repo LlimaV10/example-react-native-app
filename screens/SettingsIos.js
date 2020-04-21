@@ -1,5 +1,8 @@
 import * as React from 'react';
-import {AsyncStorage, Button, Text, TextInput, View, TouchableWithoutFeedback, Keyboard} from "react-native";
+import {Button, Keyboard, Text, TextInput, TouchableWithoutFeedback, View} from "react-native";
+import {bindActionCreators} from "redux";
+import {setUsername} from "../redux/account/actions";
+import {connect} from "react-redux";
 
 const DismissKeyboard = ({children}) => {
   return (
@@ -13,25 +16,20 @@ const DismissKeyboard = ({children}) => {
   )
 };
 
-const SettingsIos = () => {
-  const [name, setName] = React.useState("User");
+const SettingsIos = (props) => {
   const [inputName, setInputName] = React.useState("");
 
-  AsyncStorage.getItem("USERNAME", (error, result) => {
-    if (result != null) {
-      setName(result);
-    }
-  });
-
+  const {username} = props.account;
+  const {setUsername} = props;
   return (
     <DismissKeyboard>
       <View style={styles.container}>
         <View style={styles.topContainer}>
-          <Text style={styles.text}>Hello {name}</Text>
+          <Text style={styles.text}>Hello {username}</Text>
           <Text style={[styles.text, {marginTop: 9}]}>Set new name:</Text>
           <TextInput
             style={styles.input}
-            defaultValue={name}
+            defaultValue={username}
             onChangeText={text => {
               setInputName(text)
             }}
@@ -39,8 +37,7 @@ const SettingsIos = () => {
         </View>
         <Button
           onPress={() => {
-            AsyncStorage.setItem("USERNAME", inputName, () => {});
-            setName(inputName);
+            setUsername(inputName)
           }}
           title="Save"
         />
@@ -72,4 +69,18 @@ const styles = {
   },
 };
 
-export default SettingsIos
+const mapStateToProps = ({ account }) => ({
+  account
+});
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      setUsername
+    },
+    dispatch
+  );
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsIos)
