@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Text, TouchableOpacity} from "react-native";
-import navItems from "../data/nav-items";
+import navItemsAndroid from "../data/nav-items-android";
 import {Ionicons} from "@expo/vector-icons";
 
 const NextScreenButtonAndroid = ({navigation, route}) => {
@@ -12,15 +12,15 @@ const NextScreenButtonAndroid = ({navigation, route}) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        navigation.navigate(navItems[route.params.screenIndex + 1].name)
+        navigation.navigate(navItemsAndroid[route.params.screenIndex + 1].name)
       }}
     >
       <Text style={styles.buttonText}>Next screen</Text>
       <Ionicons
-          name='md-arrow-forward'
-          size={30}
-          style={styles.arrow}
-          color='white'
+        name='md-arrow-forward'
+        size={30}
+        style={styles.arrow}
+        color='white'
       />
     </TouchableOpacity>
   )

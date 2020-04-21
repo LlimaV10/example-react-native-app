@@ -1,12 +1,14 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {Platform, StatusBar} from "react-native";
+import {Platform, StatusBar, YellowBox} from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import CustomHeaderAndroid from "./navigation/CustomHeaderAndroid";
 import DrawerNavigator from "./navigation/DrawerNavigator";
 import BottomTabNavigator from "./navigation/BottomTabNavigator";
 import CustomHeaderIos from "./navigation/CustomHeaderIos";
+
+YellowBox.ignoreWarnings(['Require cycle:']);
 
 const Stack = createStackNavigator();
 

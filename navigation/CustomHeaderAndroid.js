@@ -2,7 +2,7 @@ import * as React from 'react';
 import {NativeModules, Text, TouchableOpacity, View} from "react-native";
 import {Ionicons} from '@expo/vector-icons';
 import {DrawerActions} from "@react-navigation/native";
-import navItems from "../data/nav-items";
+import navItemsAndroid from "../data/nav-items-android";
 
 const { StatusBarManager } = NativeModules;
 const STATUSBAR_HEIGHT = StatusBarManager.HEIGHT;
@@ -56,7 +56,7 @@ const CustomHeaderAndroid = ({ scene, navigation }) => {
           routeIndex !== 0 &&
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate(navItems[0].name)
+              navigation.navigate(navItemsAndroid[0].name)
             }}
             style={styles.touchableButton}
           >
@@ -82,7 +82,7 @@ const styles = {
     flexDirection: 'row',
   },
   leftButtons: {
-    height: 40,
+    height: '100%',
     width: 55,
     flexDirection: 'row',
     justifyContent: 'center'
@@ -93,7 +93,7 @@ const styles = {
     justifyContent: 'flex-start'
   },
   rightButtons: {
-    height: 40,
+    height: '100%',
     width: 55,
     flexDirection: 'row',
     justifyContent: 'center'

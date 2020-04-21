@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text, TouchableOpacity, View} from "react-native";
 import {Ionicons} from '@expo/vector-icons';
-import navItems from "../data/nav-items";
+import navItemsIos from "../data/nav-items-ios";
 
 const STATUSBAR_HEIGHT = 20;
 
@@ -12,24 +12,43 @@ const CustomHeaderIos = ({ scene, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.leftButtons} />
+      <View style={styles.leftButtons}>
+        {
+          routeIndex > navItemsIos.length - 2 &&
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(navItemsIos[0].name)
+            }}
+            style={styles.touchableButton}
+          >
+            <Ionicons
+              name='ios-arrow-back'
+              size={20}
+              style={styles.icon}
+              color='black'
+            />
+            <Text style={styles.buttonText}>Home</Text>
+          </TouchableOpacity>
+        }
+      </View>
       <View style={styles.centerButtons}>
         <Text style={styles.title}>{title}</Text>
       </View>
       <View style={styles.rightButtons}>
         {
-          routeIndex < navItems.length - 1 &&
+          routeIndex < navItemsIos.length - 2 &&
           <TouchableOpacity
-              onPress={() => {
-                navigation.navigate(navItems[routeIndex + 1].name)
-              }}
-              style={styles.touchableButton}
+            onPress={() => {
+              navigation.navigate(navItemsIos[routeIndex + 1].name)
+            }}
+            style={styles.touchableButton}
           >
+            <Text style={styles.buttonText}>Next</Text>
             <Ionicons
-                name='ios-arrow-forward'
-                size={30}
-                style={styles.icon}
-                color='black'
+              name='ios-arrow-forward'
+              size={20}
+              style={styles.icon}
+              color='black'
             />
           </TouchableOpacity>
         }
@@ -50,8 +69,8 @@ const styles = {
     borderBottomWidth: .5,
   },
   leftButtons: {
-    height: 40,
-    width: 55,
+    height: '100%',
+    width: 80,
     flexDirection: 'row',
     justifyContent: 'center'
   },
@@ -61,18 +80,25 @@ const styles = {
     justifyContent: 'center',
   },
   rightButtons: {
-    height: 40,
-    width: 55,
+    height: '100%',
+    width: 80,
     flexDirection: 'row',
     justifyContent: 'center'
   },
   touchableButton: {
+    flexDirection: 'row',
     height: '100%',
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  buttonText: {
+    color: '#39d8ff',
+  },
   icon: {
+    padding: 10,
+    marginTop: 3,
+    color: '#39d8ff'
   },
   title: {
     color: 'black',

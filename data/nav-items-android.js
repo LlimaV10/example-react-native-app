@@ -2,14 +2,13 @@ import Home from "../screens/Home";
 import SecondScreen from "../screens/SecondScreen";
 import ThirdScreen from "../screens/ThirdScreen";
 
-const navItems = [
+const navItemsAndroid = [
   {
     index: 0,
     name: 'Home',
     component: Home,
     navTitle: 'Home',
     headerTitle: 'Home screen',
-    iosIcon: 'ios-home',
   },
   {
     index: 1,
@@ -17,7 +16,6 @@ const navItems = [
     component: SecondScreen,
     navTitle: 'Second',
     headerTitle: 'Second screen',
-    iosIcon: 'logo-apple',
   },
   {
     index: 2,
@@ -25,8 +23,7 @@ const navItems = [
     component: ThirdScreen,
     navTitle: 'Third',
     headerTitle: 'Third screen',
-    iosIcon: 'ios-basketball',
   },
 ];
 
-export default navItems
+export default navItemsAndroid

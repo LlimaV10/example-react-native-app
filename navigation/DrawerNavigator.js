@@ -1,16 +1,16 @@
 import * as React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import navItems from "./../data/nav-items"
+import navItemsAndroid from "../data/nav-items-android"
 import CustomDrawerContent from "./CustomDrawerContent";
 
 const Drawer = createDrawerNavigator();
-const INITIAL_ROUTE_NAME = navItems[0].name;
+const INITIAL_ROUTE_NAME = navItemsAndroid[0].name;
 
 const DrawerNavigator = ({navigation, route}) => {
   const routeIndex = route.state?.index ?? 0;
-  navigation.setOptions({ headerTitle: navItems[routeIndex].headerTitle, index: routeIndex });
+  navigation.setOptions({ headerTitle: navItemsAndroid[routeIndex].headerTitle, index: routeIndex });
 
-  const screens = navItems.map((item) => {
+  const screens = navItemsAndroid.map((item) => {
     return (
       <Drawer.Screen
         key={item.index}
