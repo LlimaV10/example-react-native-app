@@ -1,6 +1,7 @@
 import Home from "../screens/Home";
 import Fundamentals from "../screens/Fundamentals/Fundamentals";
 import Design from "../screens/Design/Design";
+import MoreComponents from "../screens/MoreComponents/MoreComponents";
 import SettingsIos from "../screens/SettingsIos";
 
 const navItemsIos = [
@@ -30,6 +31,14 @@ const navItemsIos = [
   },
   {
     index: 3,
+    name: 'MoreComponents',
+    component: MoreComponents,
+    navTitle: 'More components',
+    headerTitle: 'More components',
+    iosIcon: 'ios-bulb',
+  },
+  {
+    index: 4,
     name: 'Settings',
     component: SettingsIos,
     navTitle: 'Settings',
