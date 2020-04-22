@@ -22,7 +22,7 @@ const Home = (props) => {
       <Text style={styles.changeNameText}>{changeNameMessage}</Text>
       <Button
         onPress={() => {
-          navigation.navigate('SecondScreen')
+          navigation.navigate('Fundamentals')
         }}
         title="Let's walk through"
       />
