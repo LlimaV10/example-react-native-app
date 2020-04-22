@@ -1,6 +1,6 @@
 import Home from "../screens/Home";
 import Fundamentals from "../screens/Fundamentals/Fundamentals";
-import ThirdScreen from "../screens/ThirdScreen";
+import Design from "../screens/Design/Design";
 
 const navItemsAndroid = [
   {
@@ -15,14 +15,14 @@ const navItemsAndroid = [
     name: 'Fundamentals',
     component: Fundamentals,
     navTitle: 'Fundamentals',
-    headerTitle: 'Fundamentals screen',
+    headerTitle: 'Fundamentals',
   },
   {
     index: 2,
-    name: 'ThirdScreen',
-    component: ThirdScreen,
-    navTitle: 'Third',
-    headerTitle: 'Third screen',
+    name: 'Design',
+    component: Design,
+    navTitle: 'Design',
+    headerTitle: 'Design and layout',
   },
 ];
 

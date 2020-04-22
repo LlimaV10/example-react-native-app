@@ -14,7 +14,7 @@ const Fundamentals = (props) => {
   return (
     <View style={{flex: 1}}>
       <TopTab.Navigator
-        initialRouteName='Example1'
+        initialRouteName='FundamentalsExample1'
         backBehavior='order'
         tabBarOptions={{
           scrollEnabled: true,
@@ -22,35 +22,35 @@ const Fundamentals = (props) => {
         }}
       >
         <TopTab.Screen
-          name='Example1'
+          name='FundamentalsExample1'
           component={Example1}
           options={{
             title: 'ViewText'
           }}
         />
         <TopTab.Screen
-          name='Example2'
+          name='FundamentalsExample2'
           component={Example2}
           options={{
             title: 'component'
           }}
         />
         <TopTab.Screen
-          name='Example3'
+          name='FundamentalsExample3'
           component={Example3}
           options={{
             title: 'props'
           }}
         />
         <TopTab.Screen
-          name='Example4'
+          name='FundamentalsExample4'
           component={Example4}
           options={{
             title: 'state'
           }}
         />
         <TopTab.Screen
-          name='Example5'
+          name='FundamentalsExample5'
           component={Example5}
           options={{
             title: 'image'

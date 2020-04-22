@@ -1,6 +1,6 @@
 import Home from "../screens/Home";
 import Fundamentals from "../screens/Fundamentals/Fundamentals";
-import ThirdScreen from "../screens/ThirdScreen";
+import Design from "../screens/Design/Design";
 import SettingsIos from "../screens/SettingsIos";
 
 const navItemsIos = [
@@ -18,15 +18,15 @@ const navItemsIos = [
     component: Fundamentals,
     navTitle: 'Fundamentals',
     headerTitle: 'Fundamentals screen',
-    iosIcon: 'logo-apple',
+    iosIcon: 'ios-planet',
   },
   {
     index: 2,
-    name: 'ThirdScreen',
-    component: ThirdScreen,
-    navTitle: 'Third',
-    headerTitle: 'Third screen',
-    iosIcon: 'ios-basketball',
+    name: 'Design',
+    component: Design,
+    navTitle: 'Design',
+    headerTitle: 'Design and layout',
+    iosIcon: 'ios-brush',
   },
   {
     index: 3,
