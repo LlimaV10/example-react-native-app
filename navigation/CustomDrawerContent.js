@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {DrawerContentScrollView, DrawerItemList, useIsDrawerOpen} from '@react-navigation/drawer';
-import {Button, Keyboard, Text, TextInput, View, ScrollView} from "react-native";
+import React, {useState} from 'react';
+import {DrawerItemList, useIsDrawerOpen} from '@react-navigation/drawer';
+import {Keyboard, ScrollView, Text, TextInput, View} from "react-native";
 import {setUsername,} from "./../redux/Actions"
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
@@ -11,12 +11,28 @@ const CustomDrawerContent = (props) => {
     Keyboard.dismiss()
   }
 
-  const [inputName, setInputName] = React.useState("");
+  const [inputName, setInputName] = useState("");
+  const [inputFocused, setInputFocused] = useState(false);
 
   const {username} = props.account;
   const {setUsername} = props;
   return (
     <ScrollView>
+      {
+        !inputFocused &&
+        <View>
+          <Text style={styles.text}>Using pure drawer items:</Text>
+          <DrawerItemList {...props} />
+          <View
+            style={{
+              borderBottomColor: '#cbcbcb',
+              borderBottomWidth: 1,
+              marginLeft: 18,
+              marginTop: 18,
+            }}
+          />
+        </View>
+      }
       <Text style={styles.text}>Hello {username}</Text>
       <Text style={[styles.text, {marginTop: 9}]}>Set new name:</Text>
       <TextInput
@@ -32,25 +48,16 @@ const CustomDrawerContent = (props) => {
         onChangeText={text => {
           setInputName(text)
         }}
-      />
-      <Button
-        onPress={() => {
+        onFocus={() => {
+          setInputFocused(true)
+        }}
+        onEndEditing={() => {
+          setInputFocused(false);
           if (inputName && inputName !== '') {
             setUsername(inputName)
           }
         }}
-        title="Save"
       />
-      <View
-        style={{
-          borderBottomColor: '#cbcbcb',
-          borderBottomWidth: 1,
-          marginLeft: 18,
-          marginTop: 18,
-        }}
-      />
-      <Text style={styles.text}>Using pure drawer items:</Text>
-      <DrawerItemList {...props} />
     </ScrollView>
   );
 };

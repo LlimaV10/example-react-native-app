@@ -2,6 +2,7 @@ import Home from "../screens/Home";
 import Fundamentals from "../screens/Fundamentals/Fundamentals";
 import Design from "../screens/Design/Design";
 import MoreComponents from "../screens/MoreComponents/MoreComponents";
+import NativeModuleAndroid from "../screens/NativeModuleAndroid";
 
 const navItemsAndroid = [
   {
@@ -31,6 +32,13 @@ const navItemsAndroid = [
     component: MoreComponents,
     navTitle: 'More components',
     headerTitle: 'More components',
+  },
+  {
+    index: 4,
+    name: 'NativeModule',
+    component: NativeModuleAndroid,
+    navTitle: 'Native module',
+    headerTitle: 'Native module',
   },
 ];
 
