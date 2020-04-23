@@ -13,7 +13,7 @@ const MoreComponents = (props) => {
   return (
     <View style={{flex: 1}}>
       <TopTab.Navigator
-        initialRouteName='DesignExample1'
+        initialRouteName='MoreComponentsExample1'
         backBehavior='order'
         tabBarOptions={{
           scrollEnabled: true,

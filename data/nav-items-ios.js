@@ -2,6 +2,7 @@ import Home from "../screens/Home";
 import Fundamentals from "../screens/Fundamentals/Fundamentals";
 import Design from "../screens/Design/Design";
 import MoreComponents from "../screens/MoreComponents/MoreComponents";
+import Animated from "../screens/Animations/Animated";
 import SettingsIos from "../screens/SettingsIos";
 
 const navItemsIos = [
@@ -39,6 +40,14 @@ const navItemsIos = [
   },
   {
     index: 4,
+    name: 'Animated',
+    component: Animated,
+    navTitle: 'Animated',
+    headerTitle: 'Animated',
+    iosIcon: 'ios-images',
+  },
+  {
+    index: 5,
     name: 'Settings',
     component: SettingsIos,
     navTitle: 'Settings',

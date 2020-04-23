@@ -23,7 +23,7 @@ const CustomHeaderIos = ({ scene, navigation }) => {
           >
             <Icon
               name='ios-arrow-back'
-              size={20}
+              size={35}
               style={styles.icon}
               color='black'
             />
@@ -46,7 +46,7 @@ const CustomHeaderIos = ({ scene, navigation }) => {
             <Text style={styles.buttonText}>Next</Text>
             <Icon
               name='ios-arrow-forward'
-              size={20}
+              size={35}
               style={styles.icon}
               color='black'
             />
@@ -59,13 +59,13 @@ const CustomHeaderIos = ({ scene, navigation }) => {
 
 const styles = {
   container: {
-    height: 65 + STATUSBAR_HEIGHT,
+    height: 60 + STATUSBAR_HEIGHT,
     paddingTop: STATUSBAR_HEIGHT,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    borderBottomColor: 'black',
+    borderBottomColor: '#d7d7d7',
     borderBottomWidth: .5,
   },
   leftButtons: {
@@ -93,6 +93,7 @@ const styles = {
     alignItems: 'center',
   },
   buttonText: {
+    fontSize: 18,
     color: '#39d8ff',
   },
   icon: {
@@ -103,7 +104,6 @@ const styles = {
   title: {
     color: 'black',
     fontSize: 20,
-    fontWeight: 'bold',
   }
 };
 
