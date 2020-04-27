@@ -3,7 +3,7 @@
 ## Requirements
 ```bash
 apt install npm
-npm install expo-cli
+npm install -g expo-cli
 ```
 
 ## Run project
